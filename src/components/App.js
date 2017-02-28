@@ -15,8 +15,6 @@ imageDatas = ((imageDataArr) => {
 	return imageDataArr;
 })(imageDatas);
 
-console.log(imageDatas);
-
 class App extends Component {
   render() {
     
@@ -24,9 +22,7 @@ class App extends Component {
         imgFigures =[];
     
     imageDatas.forEach((value)=>{
-			imgFigures.push((<ImgFigure dataSource={value}/>))
-			
-			alert(value);
+			imgFigures.push((<ImgFigure key={value["fileName"]} data={value}/>));
     });
     
     return (
