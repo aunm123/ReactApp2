@@ -8,7 +8,7 @@ imageDatas = ((imageDataArr) => {
 	for (let i=0;i<imageDataArr.length;i++){
 		let singleImageData = imageDataArr[i];
 		
-		singleImageData["imageURL"] = require("../../public/images/"+singleImageData["fileName"]);
+		singleImageData.imageURL = require("../../public/images/"+singleImageData.fileName);
 		
 		imageDataArr[i] = singleImageData;
 	}
@@ -22,7 +22,7 @@ class App extends Component {
         imgFigures =[];
     
     imageDatas.forEach((value)=>{
-			imgFigures.push((<ImgFigure key={value["fileName"]} data={value}/>));
+			imgFigures.push((<ImgFigure key={value.fileName} data={value}/>));
     });
     
     return (
@@ -41,10 +41,10 @@ class ImgFigure extends Component {
   render() {
     return (
       <figure>
-        <img src={this.props.data["imageURL"]}
-              alt={this.props.data["title"]}/>
+        <img src={this.props.data.imageURL}
+              alt={this.props.data.title}/>
         <figcaption>
-          <h2>{this.props.data["title"]}</h2>
+          <h2>{this.props.data.title}</h2>
         </figcaption>
       </figure>
     )
