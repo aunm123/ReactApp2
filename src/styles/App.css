@@ -13,6 +13,34 @@
   overflow: hidden;
 
   background-color: #ddd;
+
+}
+
+.img-figure {
+  width: 320px;
+  height: 424px;
+  margin: 0px;
+  padding: 40px;
+
+  background-color: #fff;
+  box-sizing: border-box;
+
+  position: absolute;
+}
+
+.img-figure img {
+  width: 240px;
+  height: 344px;
+
+}
+
+figcaption {
+  text-align: center;
+}
+.img-title {
+  margin: 3px 0 0 0;
+  color: #a7a0a2;
+  font-size: 16px;
 }
 
 .controller-nav {
