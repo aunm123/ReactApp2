@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
-import '../styles/App.css';
+import '../../styles/App.css';
 
-var imageDatas = require('../data/imageDatas.json');
+var imageDatas = require('../../data/imageDatas.json');
 
 imageDatas = ((imageDataArr) => {
 	
 	for (let i=0;i<imageDataArr.length;i++){
 		let singleImageData = imageDataArr[i];
 		
-		singleImageData.imageURL = require("../../public/images/"+singleImageData.fileName);
+		singleImageData.imageURL = require("../../../public/images/"+singleImageData.fileName);
 		
 		imageDataArr[i] = singleImageData;
 	}
@@ -143,31 +143,31 @@ class App extends Component {
   render() {
     
     var controllerUnits = [],
-        imgFigures =[];
-    
-    imageDatas.forEach(((value,index)=>{
-    	
-    	if(!this.state.imgArrangeArr[index]) {
-    		this.state.imgArrangeArr[index] = {
-    			pos:{
-    				left:0,
+			imgFigures =[];
+	
+		imageDatas.forEach(((value,index)=>{
+		
+			if(!this.state.imgArrangeArr[index]) {
+				this.state.imgArrangeArr[index] = {
+					pos:{
+						left:0,
 						top:0
 					}
 				}
 			}
-    	
+		
 			imgFigures.push((<ImgFigure key={index} arrange={this.state.imgArrangeArr[index]} ref={'imageIndex'+index} data={value}/>));
-    }).bind(this));
-    
-    return (
-      <section className="stage" ref="stage">
-        <section className="img-sec">
-          {imgFigures}
-        </section>
-        <nav className="controller-nav">
-        </nav>
-      </section>
-    );
+		}).bind(this));
+	
+		return (
+			<section className="stage" ref="stage">
+				<section className="img-sec">
+					{imgFigures}
+				</section>
+				<nav className="controller-nav">
+				</nav>
+			</section>
+		);
   }
 }
 
